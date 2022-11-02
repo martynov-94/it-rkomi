@@ -1,0 +1,234 @@
+html {
+  font-size: 16px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header {
+  display: grid;
+  grid-template-areas: "logo contacts" "logo menu";
+  grid-template-columns: 3.5fr 6.5fr;
+  column-gap: 7.5vw;
+  height: 170px;
+}
+.header__logo-container {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  position: relative;
+  grid-area: logo;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 130px;
+  background-color: #e6e6e6;
+  -webkit-user-select: none;
+          user-select: none;
+}
+.header__logo-container::after {
+  position: absolute;
+  right: -95px;
+  z-index: -1;
+  content: "";
+  display: block;
+  border-style: solid;
+  border-width: 130px 95px 0 0;
+  border-color: #e6e6e6 transparent transparent transparent;
+}
+.header__logo-img {
+  margin-right: 22px;
+}
+.header__logo-text {
+  margin-right: -10px;
+  font: bold 1.5625rem/1.2 "Russo One", sans-serif;
+  color: #663333;
+  text-transform: uppercase;
+}
+.header__contacts {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: contacts;
+  display: flex;
+  align-items: center;
+  gap: 3vw;
+  height: 120px;
+}
+.header__phone {
+  position: relative;
+  padding-left: 38px;
+  color: #505050;
+  font-weight: bold;
+  text-decoration: none;
+}
+.header__phone::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 24px;
+  height: 24px;
+  content: "";
+  background-image: url("components/header/img/phone.png");
+  background-position: center center;
+}
+.header__email {
+  position: relative;
+  padding-left: 38px;
+  color: #505050;
+  font-weight: bold;
+  text-decoration: none;
+}
+.header__email::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 24px;
+  height: 19px;
+  content: "";
+  background-image: url("components/header/img/mail.png");
+  background-position: center center;
+}
+.header__email::before {
+  top: 2px;
+}
+.header__feedback-btn {
+  padding: 10px 25px;
+  font-size: 0.8125rem;
+  font-family: "Open Sans", sans-serif;
+  color: #663333;
+  background: none;
+  border: 1px solid #663333;
+  border-radius: 2px;
+}
+.header__feedback-btn:hover {
+  color: #b29696;
+  border-color: #b29696;
+  cursor: pointer;
+}
+.header__menu {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: menu;
+}
+
+.main-menu {
+  position: relative;
+  display: flex;
+  height: 50px;
+  background-color: #663333;
+}
+.main-menu__list {
+  display: flex;
+  width: 100%;
+}
+.main-menu__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.main-menu__item:first-of-type::before {
+  position: absolute;
+  left: -35px;
+  z-index: -1;
+  display: block;
+  content: "";
+  border-style: solid;
+  border-width: 0 0 50px 35px;
+  border-color: transparent transparent #663333 transparent;
+}
+.main-menu__item:first-of-type:hover::before {
+  border-color: transparent transparent #734949 transparent;
+}
+.main-menu__item > a {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  padding: 0 3vw;
+  font-size: 0.8125rem;
+  color: white;
+  text-decoration: none;
+}
+.main-menu__item:not(:first-of-type)::before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 1px;
+  height: 24px;
+  background-color: #4e2020;
+}
+.main-menu__item_with-sub {
+  position: relative;
+}
+.main-menu__item_with-sub > a {
+  position: relative;
+  padding-right: calc(3vw + 18px);
+}
+.main-menu__item_with-sub > a::after {
+  position: absolute;
+  right: 3vw;
+  display: block;
+  content: "";
+  margin-top: 2px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 4px 0 4px;
+  border-color: white transparent transparent transparent;
+}
+.main-menu__item_with-sub:hover .main-menu__sub-list {
+  display: block;
+}
+.main-menu__item_with-sub::before:hover {
+  background-color: black;
+}
+.main-menu__item_with-sub::before:hover ~ .main-menu__sub-list {
+  display: block;
+}
+.main-menu__item:hover {
+  background-color: #734949;
+}
+.main-menu__sub-list {
+  position: absolute;
+  top: 50px;
+  display: none;
+  width: -webkit-max-content;
+  width: max-content;
+  padding: 22px 2vw;
+  border: 1px solid black;
+  background-color: white;
+  list-style-image: url("components/main-menu/img/arrow.svg");
+}
+.main-menu__sub-item {
+  position: relative;
+  margin-left: 1.5vw;
+}
+.main-menu__sub-item > a {
+  display: block;
+  padding: 7px 0;
+  padding-left: 7px;
+  font-size: 0.8125rem;
+  color: #1c1c1c;
+  text-decoration: none;
+}
+.main-menu__sub-item > a:hover {
+  text-decoration: underline;
+}

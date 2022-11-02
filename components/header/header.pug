@@ -1,2 +1,13 @@
+-
+  var HEADER_PATH = "components/header/";
+
 mixin header(className)
   header(class=className)
+    .header__logo-container
+      img.header__logo-img(src = HEADER_PATH + "img/logo.png", alt = "Angry bull's head", width = "100", height = "90")
+      p.header__logo-text Easy<br>moving
+    .header__contacts
+      a.header__phone(href="tel://+12065550100") +1 206 555 0100
+      a.header__email(href="mailto:easy_moving@gmail.com") easy_moving@gmail.com
+      button.header__feedback-btn Write us!
+    +main-menu("header__menu main-menu")

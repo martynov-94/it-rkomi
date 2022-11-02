@@ -1,3 +1,120 @@
 .header {
+  $folder-path: "components/header/"; 
+
+  display: grid;
+  grid-template-areas: 
+    "logo contacts"
+    "logo menu";
+  grid-template-columns: 3.5fr 6.5fr;
+  column-gap: 7.5vw;
+  height: 170px;
+
+  &__logo-container {
+    $background-color: rgb(230, 230, 230);
+    $height: 130px;
+
+    position: relative;
+
+    grid-area: logo;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: $height;
+
+    background-color: $background-color;
+    user-select: none;
+
+    &::after {
+      $corner-width: 95px;
+
+      position: absolute;
+      right: -$corner-width;
+      z-index: -1;
   
+      content: "";
+      display: block;
+
+      border-style: solid;
+      border-width: $height $corner-width 0 0;
+      border-color: $background-color transparent transparent transparent;
+    }
+  }
+
+  &__logo-img {
+    margin-right: 22px;
+  }
+
+  &__logo-text {
+    margin-right: -10px;
+
+    font: bold 1.5625rem/1.2 "Russo One", sans-serif;
+    color: rgb(102, 51, 51);
+    text-transform: uppercase;
+  }
+
+  &__contacts {
+    grid-area: contacts;
+    display: flex;
+    align-items: center;
+    gap: 3vw;
+    height: 120px;
+  }
+
+  @mixin contact($pic-path, $img-width, $img-height) {
+    position: relative;
+    padding-left: 38px;
+
+    color: rgb(80, 80, 80);
+    font-weight: bold;
+    text-decoration: none;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      
+      display: block;
+      width: $img-width;
+      height: $img-height;
+      content: "";
+
+      background-image: url($folder-path + "img/"+ $pic-path);
+      background-position: center center;
+    }
+  }
+
+  &__phone {
+    @include contact("phone.png", 24px, 24px);
+  }
+
+  &__email {
+    @include contact("mail.png", 24px, 19px);
+    
+    &::before {
+      top: 2px;
+    }
+  }
+
+  &__feedback-btn {
+    padding: 10px 25px;
+
+    font-size: 0.8125rem;
+    font-family: "Open Sans", sans-serif;
+    color: rgb(102, 51, 51);
+
+    background: none;
+    border: 1px solid rgb(102, 51, 51);
+    border-radius: 2px;
+
+    &:hover {
+      color: #b29696;
+
+      border-color: #b29696;
+      cursor: pointer;
+    }
+  }
+
+  &__menu {
+    grid-area: menu;
+  }
 }
