@@ -1,0 +1,20 @@
+.motto {
+  position: relative;
+  z-index: -1;
+
+  height: 380px;
+
+  background: url(components/motto/img/banner.png) no-repeat bottom right;
+  background-size: cover;
+
+  &__text {
+    position: absolute;
+    left: 58%;
+    bottom: 45px;
+
+    font-size: 1.875rem;
+    color: white;
+    text-transform: uppercase;
+    user-select: none;
+  }
+}

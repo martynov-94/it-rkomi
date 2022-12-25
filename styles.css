@@ -130,6 +130,24 @@ ul {
   grid-area: menu;
 }
 
+.motto {
+  position: relative;
+  z-index: -1;
+  height: 380px;
+  background: url(components/motto/img/banner.png) no-repeat bottom right;
+  background-size: cover;
+}
+.motto__text {
+  position: absolute;
+  left: 58%;
+  bottom: 45px;
+  font-size: 1.875rem;
+  color: white;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+          user-select: none;
+}
+
 .main-menu {
   position: relative;
   display: flex;
